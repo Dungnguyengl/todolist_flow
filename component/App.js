@@ -1,0 +1,19 @@
+import html from '../js/core.js';
+import {connect} from '../js/store.js';
+import Header from './Header.js';
+import Main from './Main.js';
+import Footer from './Footer.js';
+
+const connector = connect()
+
+function App({todos}) {
+    return html`
+    <section class="todoapp">
+        ${Header()}
+        ${todos.length > 0 && Main()}
+        ${todos.length > 0 && Footer()}
+    </section>
+    `
+}
+
+export default connector(App)
